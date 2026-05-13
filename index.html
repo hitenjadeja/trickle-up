@@ -13,10 +13,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/theme.css?v=9">
-  <link rel="stylesheet" href="styles/layout.css?v=9">
-  <link rel="stylesheet" href="styles/components.css?v=9">
-  <link rel="stylesheet" href="styles/chapters.css?v=9">
+  <link rel="stylesheet" href="styles/theme.css?v=10">
+  <link rel="stylesheet" href="styles/layout.css?v=10">
+  <link rel="stylesheet" href="styles/components.css?v=10">
+  <link rel="stylesheet" href="styles/chapters.css?v=10">
 </head>
 <body>
 
@@ -44,6 +44,26 @@
   <nav class="chapter-nav" aria-label="Chapter navigation"></nav>
 
   <main>
+    <section class="intro" id="intro" aria-label="Introduction">
+      <div class="intro__inner">
+        <div class="intro__brand">
+          <svg class="intro__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M10 54 L32 14 L54 54" stroke="#3fb950" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="14" r="5" fill="#3fb950"/>
+          </svg>
+          <h1 class="intro__title">
+            <span class="intro__title-1">Trickle</span><span class="intro__title-2">Up</span>
+          </h1>
+        </div>
+        <p class="intro__tagline">the economy you weren't told about.</p>
+        <p class="intro__explainer">A 10-minute interactive story about wealth, work, and where the money really goes. Pick a perspective, then follow your &pound;100 through the system.</p>
+        <a class="intro__scroll-cue" href="#chapter-1" aria-label="Scroll to begin">
+          <span>Scroll to begin</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3 L8 13 M3 8 L8 13 L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
     <section class="chapter" id="chapter-1" data-chapter="1" data-label="Pick role">
       <div class="chapter__inner">
         <div class="chapter__label">Chapter 01 / Perspective</div>
@@ -137,16 +157,16 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
   <!-- Trickle Up scripts -->
-  <script src="scripts/state.js?v=9"></script>
-  <script src="scripts/roles.js?v=9"></script>
-  <script src="scripts/chapter-roles.js?v=9"></script>
-  <script src="scripts/chapter-two-kinds.js?v=9"></script>
-  <script src="scripts/chapter-flow.js?v=9"></script>
-  <script src="scripts/chapter-debt.js?v=9"></script>
-  <script src="scripts/chapter-pullaway.js?v=9"></script>
-  <script src="scripts/chapter-squeeze.js?v=9"></script>
-  <script src="scripts/chapter-tax.js?v=9"></script>
-  <script src="scripts/chapter-fix.js?v=9"></script>
-  <script src="scripts/scroll.js?v=9"></script>
+  <script src="scripts/state.js?v=10"></script>
+  <script src="scripts/roles.js?v=10"></script>
+  <script src="scripts/chapter-roles.js?v=10"></script>
+  <script src="scripts/chapter-two-kinds.js?v=10"></script>
+  <script src="scripts/chapter-flow.js?v=10"></script>
+  <script src="scripts/chapter-debt.js?v=10"></script>
+  <script src="scripts/chapter-pullaway.js?v=10"></script>
+  <script src="scripts/chapter-squeeze.js?v=10"></script>
+  <script src="scripts/chapter-tax.js?v=10"></script>
+  <script src="scripts/chapter-fix.js?v=10"></script>
+  <script src="scripts/scroll.js?v=10"></script>
 </body>
 </html>
