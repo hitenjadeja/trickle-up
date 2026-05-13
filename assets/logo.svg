@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none">
+  <path d="M16 50 L32 18 L48 50" stroke="#3fb950" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="18" r="4.5" fill="#3fb950"/>
+  <text x="64" y="42" fill="#f0f6fc" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5">Trickle</text>
+  <text x="156" y="42" fill="#58a6ff" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="28" letter-spacing="-0.5">Up</text>
+</svg>

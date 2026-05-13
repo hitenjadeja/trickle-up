@@ -1,0 +1,889 @@
+/* Trickle Up - per-chapter layout overrides */
+
+/* Ch 1 - role picker */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+@media (max-width: 1100px) {
+  .roles-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-height: 220px;
+  text-align: left;
+}
+
+.role-card__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  color: var(--accent-flow);
+}
+
+.role-card__name {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.role-card__lede {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.role-card__check {
+  align-self: flex-end;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent-flow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-card.is-active .role-card__check { display: flex; }
+
+@media (max-width: 900px) {
+  .roles-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .roles-grid { grid-template-columns: repeat(2, 1fr); }
+  .role-card { min-height: 180px; }
+}
+
+/* Ch 2 - two kinds of money */
+.two-kinds {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--sp-6);
+  align-items: stretch;
+  margin-top: var(--sp-6);
+  position: relative;
+}
+
+.two-kinds__col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+.chapter.is-seen .two-kinds__col--wages { opacity: 1; transform: translateY(0); transition-delay: 320ms; }
+.chapter.is-seen .two-kinds__col--assets { opacity: 1; transform: translateY(0); transition-delay: 480ms; }
+
+.two-kinds__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.two-kinds__col--wages .two-kinds__icon { color: var(--accent-warn); }
+.two-kinds__col--assets .two-kinds__icon { color: var(--accent-grow); }
+
+.two-kinds__title {
+  font-size: var(--fs-lg);
+  margin: 0;
+}
+
+.two-kinds__desc { color: var(--text-muted); margin: 0; }
+
+.two-kinds__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.two-kinds__list li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding-left: var(--sp-4);
+  position: relative;
+}
+
+.two-kinds__list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accent-flow);
+}
+
+.two-kinds__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-flow);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 600ms ease, transform 600ms ease;
+  transition-delay: 720ms;
+}
+
+.chapter.is-seen .two-kinds__arrow { opacity: 1; transform: scale(1); }
+
+@media (max-width: 768px) {
+  .two-kinds {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+  .two-kinds__arrow {
+    transform: rotate(90deg) scale(0.6);
+  }
+  .chapter.is-seen .two-kinds__arrow { transform: rotate(90deg) scale(1); }
+}
+
+/* Ch 3 - two panels: spending Sankey + income composition bars */
+
+.flow-panel {
+  margin-top: var(--sp-6);
+}
+
+.flow-panel__title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 var(--sp-3);
+  letter-spacing: -0.01em;
+}
+
+.flow-panel__lede {
+  color: var(--text-muted);
+  margin: 0 0 var(--sp-4);
+  max-width: 680px;
+}
+
+.flow-panel--bars {
+  margin-top: var(--sp-8);
+}
+
+/* Ch 3 - Sankey */
+.sankey-host {
+  display: block;
+}
+
+.sankey-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.sankey-wrap--mini {
+  padding: var(--sp-4);
+}
+
+.sankey-wrap__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-3);
+}
+
+.sankey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+/* 5-tile layout: 4 personal in 2x2, state spans both columns at the bottom */
+.sankey-grid--five .sankey-wrap--span {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 760px) {
+  .sankey-grid { grid-template-columns: 1fr; }
+  .sankey-grid--five .sankey-wrap--span { grid-column: 1; }
+}
+
+.sankey {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.sankey__node-label {
+  font-size: 12px;
+  fill: var(--text);
+  font-weight: 600;
+}
+
+.sankey__node-amount {
+  font-size: 11px;
+  fill: var(--text-muted);
+}
+
+.sankey__link {
+  fill: none;
+  stroke-opacity: 0.5;
+  transition: stroke-opacity var(--t-fast);
+}
+
+.sankey__link:hover { stroke-opacity: 0.85; }
+
+/* Ch 3 - Income composition bars */
+.income-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.income-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.income-legend__swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.income-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.income-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+
+.income-row.is-you {
+  background: rgba(88, 166, 255, 0.06);
+  border-color: var(--accent-flow);
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.25);
+}
+
+.income-row__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.income-row__name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.income-row.is-you .income-row__name {
+  color: var(--accent-flow);
+}
+
+.income-row__you {
+  display: none;
+  font-weight: 600;
+  color: var(--accent-flow);
+  white-space: nowrap;
+}
+
+.income-row.is-you .income-row__you {
+  display: inline;
+}
+
+.income-bar {
+  display: flex;
+  width: 100%;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.income-bar__seg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(15, 20, 25, 0.85);
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 0;
+  transition: filter var(--t-fast);
+}
+
+.income-bar__seg:hover {
+  filter: brightness(1.15);
+}
+
+.income-bar__seg[data-src="int"],
+.income-bar__seg[data-src="rent"] {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.income-bar__seg-label {
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+@media (max-width: 760px) {
+  .income-row {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+  }
+  .income-bar {
+    height: 30px;
+  }
+  .income-bar__seg-label {
+    font-size: 10px;
+    padding: 0 4px;
+  }
+  .income-legend {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .income-bar__seg-label {
+    display: none;
+  }
+}
+
+/* Ch 4 - Debt */
+.debt-stage {
+  margin-top: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+}
+
+.debt-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--sp-6);
+}
+
+.debt-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--sp-4);
+  align-items: center;
+}
+
+.debt-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  text-align: center;
+  padding: var(--sp-5);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.debt-side__icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.debt-side--you .debt-side__icon { color: var(--accent-warn); }
+.debt-side--owner .debt-side__icon { color: var(--accent-grow); }
+
+.debt-side__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.debt-side__name {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  margin: 0;
+}
+
+.debt-side__detail { font-size: var(--fs-sm); color: var(--text-muted); margin: 0; }
+
+.debt-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  position: relative;
+}
+
+.debt-flow__line {
+  width: 100%;
+  min-width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-warn), var(--accent-grow));
+  position: relative;
+  border-radius: 2px;
+}
+
+.debt-flow__pulse {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-spark);
+  box-shadow: 0 0 12px var(--accent-spark);
+  animation: debt-pulse 3s linear infinite;
+}
+
+@keyframes debt-pulse {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 10px); opacity: 0; }
+}
+
+.debt-flow__amount {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .debt-diagram {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+  .debt-flow {
+    transform: rotate(90deg);
+    min-height: 80px;
+    margin: var(--sp-2) 0;
+  }
+  .debt-flow__amount { transform: rotate(-90deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .debt-flow__pulse { animation: none; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .debt-flow__pulse { animation: none; opacity: 0; }
+}
+
+/* Ch 5 - Compound race */
+.compound-stage {
+  margin-top: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.compound-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.compound-chart {
+  width: 100%;
+  height: 320px;
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.compound-controls {
+  margin-top: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+@media (max-width: 600px) {
+  .compound-chart { height: 240px; }
+}
+
+/* Ch 6 - The squeeze */
+.squeeze-stage {
+  margin-top: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.squeeze-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.squeeze-header__role {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 8px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.squeeze-header__role b { color: var(--text); font-weight: 700; }
+
+.squeeze-chart {
+  width: 100%;
+  height: 280px;
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.squeeze-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+
+@media (max-width: 600px) {
+  .squeeze-chart { height: 220px; }
+  .squeeze-summary { grid-template-columns: 1fr; }
+  .compound-stats { grid-template-columns: 1fr; }
+}
+
+/* Ch 7 - Tax */
+.tax-stage {
+  margin-top: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.tax-input-row {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tax-input-row label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.tax-presets { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+
+.tax-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.tax-row__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-weight: 600;
+}
+
+.tax-row__title-name {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tax-bar {
+  width: 100%;
+  height: 32px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.tax-bar__seg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(15, 20, 25, 0.85);
+  font-weight: 700;
+  transition: width var(--t-slow);
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tax-bar__seg--income { background: var(--accent-warn); }
+.tax-bar__seg--ni { background: #ff8c5a; }
+.tax-bar__seg--employer { background: #ffb86b; }
+.tax-bar__seg--cgt { background: var(--accent-grow); }
+.tax-bar__seg--takehome { background: var(--surface-2); color: var(--text-muted); }
+
+.tax-row__total {
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.tax-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xxl);
+  font-weight: 800;
+  color: var(--accent-spark);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .tax-divider { font-size: var(--fs-xl); }
+  .tax-bar__seg { font-size: 10px; }
+}
+
+/* Ch 8 - Simulator + share */
+.sim-stage {
+  margin-top: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.sim-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+@media (max-width: 600px) {
+  .sim-buttons { grid-template-columns: repeat(2, 1fr); }
+}
+
+.sim-button {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text);
+  transition: border-color var(--t-fast), background var(--t-fast), transform var(--t-fast);
+  min-height: 64px;
+}
+
+.sim-button:hover { border-color: var(--accent-flow); transform: translateY(-2px); }
+.sim-button.is-active { background: var(--accent-flow); color: var(--bg); border-color: var(--accent-flow); }
+
+.sim-chart {
+  width: 100%;
+  height: 280px;
+  display: block;
+  font-family: var(--font-mono);
+}
+
+.sim-result {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: var(--sp-4);
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.sim-result__from, .sim-result__to {
+  font-family: var(--font-mono);
+}
+
+.sim-result__from b, .sim-result__to b {
+  font-size: var(--fs-md);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.sim-result__multiple {
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  color: var(--accent-grow);
+  font-weight: 700;
+}
+
+.fix-conclusion {
+  margin-top: var(--sp-6);
+  padding: var(--sp-5);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-spark);
+  border-radius: var(--radius);
+}
+
+.fix-conclusion p {
+  margin: 0;
+  font-size: var(--fs-md);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.share-block {
+  margin-top: var(--sp-6);
+  padding: var(--sp-5);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.share-block h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--sp-4);
+}
+
+.share-buttons {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-5);
+}
+
+.further-reading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.further-reading h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--sp-3);
+}
+
+.further-reading a {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+
+.further-reading a:hover { border-color: var(--accent-flow); }
+
+.share-toast {
+  position: fixed;
+  bottom: var(--sp-6);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: 12px 18px;
+  background: var(--accent-grow);
+  color: var(--bg);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-base), transform var(--t-base);
+  z-index: 200;
+}
+
+.share-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

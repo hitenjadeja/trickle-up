@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trickle Up - an interactive 10-minute story about wealth, work, and where the money really goes.">
+  <meta name="theme-color" content="#0f1419">
+  <title>Trickle Up - the economy you weren't told about</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/theme.css?v=9">
+  <link rel="stylesheet" href="styles/layout.css?v=9">
+  <link rel="stylesheet" href="styles/components.css?v=9">
+  <link rel="stylesheet" href="styles/chapters.css?v=9">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="#chapter-1" class="brand" aria-label="Trickle Up - back to start">
+        <svg class="brand__mark" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <path d="M5 22 L14 6 L23 22" stroke="#3fb950" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="6" r="2.6" fill="#3fb950"/>
+        </svg>
+        <span class="brand__name">
+          <span class="brand__name-1">Trickle</span>
+          <span class="brand__name-2">Up</span>
+        </span>
+      </a>
+      <div class="header-meta">
+        <span class="header-role" id="header-role" hidden>
+          <span class="header-role__dot"></span>
+          <span class="header-role__name">No role</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="chapter-nav" aria-label="Chapter navigation"></nav>
+
+  <main>
+    <section class="chapter" id="chapter-1" data-chapter="1" data-label="Pick role">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 01 / Perspective</div>
+        <h2 class="chapter__title">First, who are you in this story?</h2>
+        <p class="chapter__lede">The same economy treats six people very differently. Pick the one closest to you. We will personalise the story as you scroll.</p>
+        <div class="chapter__body">
+          <div class="roles-grid" id="roles-grid" role="radiogroup" aria-label="Choose your role"></div>
+          <button class="continue-arrow" id="roles-continue" aria-label="Continue">
+            <span>Continue</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3 L8 13 M3 8 L8 13 L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-2" data-chapter="2" data-label="Two kinds">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 02 / Two kinds of money</div>
+        <h2 class="chapter__title">There are two kinds of money. Almost everyone only has one of them.</h2>
+        <p class="chapter__lede">Wages are what you trade time for. Assets are what trade time for you. The first runs out, the second compounds. Most of the country lives on the first.</p>
+        <div class="chapter__body" id="two-kinds-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-3" data-chapter="3" data-label="The flow">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 03 / The flow</div>
+        <h2 class="chapter__title">Where the money actually goes.</h2>
+        <p class="chapter__lede">For every £100 you earn, follow it through the system. Almost all of it ends up somewhere very specific.</p>
+        <div class="chapter__body" id="flow-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-4" data-chapter="4" data-label="Debt">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 04 / Debt is an asset</div>
+        <h2 class="chapter__title">Your debt is somebody else's income.</h2>
+        <p class="chapter__lede">Mortgages, credit cards, car loans, student loans. Every monthly payment you make is a return on someone else's wealth.</p>
+        <div class="chapter__body" id="debt-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-5" data-chapter="5" data-label="Pull-away">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 05 / The pull-away</div>
+        <h2 class="chapter__title">Wages grow at 1%. Assets grow at 8%. Drag the years and watch what happens.</h2>
+        <p class="chapter__lede">A small annual gap looks harmless. Compounded over a working lifetime, it is the entire story of modern inequality.</p>
+        <div class="chapter__body" id="pullaway-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-6" data-chapter="6" data-label="Squeeze">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 06 / The squeeze</div>
+        <h2 class="chapter__title">This is what it looks like for you.</h2>
+        <p class="chapter__lede">The same economy, your view. The chart below changes based on the role you picked. Switch roles in the menu to compare.</p>
+        <div class="chapter__body" id="squeeze-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-7" data-chapter="7" data-label="Tax">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 07 / Tax</div>
+        <h2 class="chapter__title">Why they tax your work, not their wealth.</h2>
+        <p class="chapter__lede">Type a salary. See your effective tax rate next to a billionaire's. The difference is not an accident.</p>
+        <div class="chapter__body" id="tax-body"></div>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-8" data-chapter="8" data-label="Fix">
+      <div class="chapter__inner">
+        <div class="chapter__label">Chapter 08 / What could change</div>
+        <h2 class="chapter__title">Pick a starting wealth. Watch it run.</h2>
+        <p class="chapter__lede">The same 8% return, very different lives. The bottom of this chart is where most of us live. The top of it is where money makes itself.</p>
+        <div class="chapter__body" id="fix-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Numbers are illustrative round figures, designed to make the maths visible. They are inspired by the analysis of Gary Stevenson (Gary's Economics) and broad public data on UK income, wealth, and tax distribution.</p>
+    <p>British English. No em dashes. <a href="https://github.com/" target="_blank" rel="noopener">Source</a></p>
+  </footer>
+
+  <div class="share-toast" id="share-toast" role="status" aria-live="polite">Link copied</div>
+
+  <!-- Vendor scripts (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <!-- Trickle Up scripts -->
+  <script src="scripts/state.js?v=9"></script>
+  <script src="scripts/roles.js?v=9"></script>
+  <script src="scripts/chapter-roles.js?v=9"></script>
+  <script src="scripts/chapter-two-kinds.js?v=9"></script>
+  <script src="scripts/chapter-flow.js?v=9"></script>
+  <script src="scripts/chapter-debt.js?v=9"></script>
+  <script src="scripts/chapter-pullaway.js?v=9"></script>
+  <script src="scripts/chapter-squeeze.js?v=9"></script>
+  <script src="scripts/chapter-tax.js?v=9"></script>
+  <script src="scripts/chapter-fix.js?v=9"></script>
+  <script src="scripts/scroll.js?v=9"></script>
+</body>
+</html>

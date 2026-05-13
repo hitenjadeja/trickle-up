@@ -1,0 +1,24 @@
+# Claude Code dev tooling - local only
+.claude/
+.superpowers/
+CLAUDE.md
+
+# Reference material with unclear redistribution rights
+Stevenson-2019.pdf
+
+# macOS / editor noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs, environment, node defensive
+*.log
+.env
+.env.*
+node_modules/
+
+# Local screenshots and scratch files
+.tmp-*
+*-screenshot.png
