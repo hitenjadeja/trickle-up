@@ -64,7 +64,7 @@
     },
     state: {
       shape: 'state',
-      label: "The state's £100",
+      label: "The government's £100",
       treasuryName: 'Government revenue',
       // Left column: where revenue comes from (sum 100).
       // No wealth tax category - the UK has no proper wealth tax.

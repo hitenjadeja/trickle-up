@@ -115,7 +115,7 @@
     },
     {
       id: 'state',
-      name: 'The State',
+      name: 'The Government',
       lede: 'You set tax policy and decide what gets funded. Most of your revenue is from working people. A chunk of your spending leaves the state as interest on borrowing.',
       icon: 'building',
       defaults: { salary: 0, wealthStart: 0, homeValue: 0, rent: 0 },
